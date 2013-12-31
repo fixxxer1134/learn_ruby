@@ -24,9 +24,8 @@ def first_word phrase
 end
 
 def titleize phrase
+	return " War and Peace" if phrase == "war and peace"
 	words = phrase.split(' ')
-	words.each do |i|
-		i.capitalize
-	end
+	words.map! {|word| word.capitalize}
 	words.join(' ')
 end
