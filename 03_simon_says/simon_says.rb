@@ -24,8 +24,15 @@ def first_word phrase
 end
 
 def titleize phrase
-	return " War and Peace" if phrase == "war and peace"
+	return_array = []
+	little_words = %w(and or in on the over)
 	words = phrase.split(' ')
-	words.map! {|word| word.capitalize}
-	words.join(' ')
+	words.each do |word|
+		if little_words.include? word
+			return_array << word
+		else return_array << word.capitalize
+		end
+	end
+	return_array[0] = return_array[0].capitalize
+	return_array.join(' ')
 end
